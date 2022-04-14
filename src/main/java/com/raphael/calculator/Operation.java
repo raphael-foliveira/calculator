@@ -2,7 +2,6 @@
 package com.raphael.calculator;
 
 public class Operation {
-    static double memory;
     static double num1;
     static double num2;
     static String operator;
@@ -18,6 +17,13 @@ public class Operation {
             return num1 / num2;
         }
         return num1;
+    }
+
+    public static double parseOperation(String string) {
+        String[] numbers = string.split("\\" + operator);
+        num1 = Double.parseDouble(numbers[0]);
+        num2 = Double.parseDouble(numbers[1]);
+        return getResult();
     }
 
     public static double getNum1() {

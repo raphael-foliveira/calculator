@@ -279,6 +279,10 @@ public class CalculatorGUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btn1ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btn1ActionPerformed
+        visor.setText(visor.getText() + "1");
+    }// GEN-LAST:event_btn1ActionPerformed
+
     private void btn2ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btn2ActionPerformed
         // TODO add your handling code here:
         visor.setText(visor.getText() + "2");
@@ -312,10 +316,6 @@ public class CalculatorGUI extends javax.swing.JFrame {
 
     }// GEN-LAST:event_jButton6ActionPerformed
 
-    private void btn1ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btn1ActionPerformed
-        visor.setText(visor.getText() + "1");
-    }// GEN-LAST:event_btn1ActionPerformed
-
     private void btn5ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btn5ActionPerformed
         visor.setText(visor.getText() + "5");
     }// GEN-LAST:event_btn5ActionPerformed
@@ -325,41 +325,30 @@ public class CalculatorGUI extends javax.swing.JFrame {
     }// GEN-LAST:event_btn8ActionPerformed
 
     private void btnMinusActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnMinusActionPerformed
-        double visorNum = Double.parseDouble(visor.getText());
-        Operation.setNum1(visorNum);
         Operation.setOperator("-");
-        visor.setText("");
+        visor.setText(visor.getText() + Operation.operator);
     }// GEN-LAST:event_btnMinusActionPerformed
 
     private void btnMultiplyActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnMultiplyActionPerformed
-        double visorNum = Double.parseDouble(visor.getText());
-        Operation.setNum1(visorNum);
         Operation.setOperator("*");
-        visor.setText("");
+        visor.setText(visor.getText() + Operation.operator);
     }// GEN-LAST:event_btnMultiplyActionPerformed
 
     private void btnDivideActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnDivideActionPerformed
-        double visorNum = Double.parseDouble(visor.getText());
-        Operation.setNum1(visorNum);
         Operation.setOperator("/");
-        visor.setText("");
+        visor.setText(visor.getText() + Operation.operator);
     }// GEN-LAST:event_btnDivideActionPerformed
 
     private void btnPlusActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnPlusActionPerformed
-        double visorNum = Double.parseDouble(visor.getText());
-        Operation.setNum1(visorNum);
         Operation.setOperator("+");
-        visor.setText("");
+        visor.setText(visor.getText() + Operation.operator);
     }// GEN-LAST:event_btnPlusActionPerformed
 
     private void btnEqualsActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnEqualsActionPerformed
-        double visorNum = Double.parseDouble(visor.getText());
-        Operation.setNum2(visorNum);
-        double result = Operation.getResult();
+        String operationString = visor.getText();
+        System.out.println(operationString);
+        double result = Operation.parseOperation(operationString);
         visor.setText(String.format("%.2f", result));
-        Operation.setNum1(0);
-        Operation.setNum2(0);
-        Operation.setOperator("");
     }// GEN-LAST:event_btnEqualsActionPerformed
 
     private void btnClearActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnClearActionPerformed
