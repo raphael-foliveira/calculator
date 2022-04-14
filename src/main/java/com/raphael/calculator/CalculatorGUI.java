@@ -346,7 +346,6 @@ public class CalculatorGUI extends javax.swing.JFrame {
 
     private void btnEqualsActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnEqualsActionPerformed
         String operationString = visor.getText();
-        System.out.println(operationString);
         double result = Operation.parseOperation(operationString);
         visor.setText(String.format("%.2f", result));
     }// GEN-LAST:event_btnEqualsActionPerformed
